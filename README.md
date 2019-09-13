@@ -1,1 +1,3 @@
-BestBud's landing page
+## BestBud's landing page
+
+git subtree push --prefix dist origin gh-pages

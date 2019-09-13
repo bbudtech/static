@@ -136,29 +136,39 @@ gulp.task("dev", function() {
       "src/assets/images",
       "src/assets/webfonts"
     ],
-    gulp.series("clean", function() {
-      return (
-        gulp
-          .src([
-            "./src/assets/sass/main.scss",
-            "./src/assets/sass/noscript.scss"
-          ])
-          // Compile SASS files
-          .pipe(
-            sass({
-              outputStyle: "nested",
-              precision: 10,
-              includePaths: ["."],
-              onError: console.error.bind(console, "Sass error:")
-            })
-          )
-          // Auto-prefix css styles for cross browser compatibility
-          .pipe(autoprefixer())
-          // Minify the file
-          .pipe(csso())
-          // Output
-          .pipe(gulp.dest("./src/assets/css"))
-      );
-    })
+    gulp.series(
+      "clean",
+      // Compile SASS and output to src
+      function() {
+        return (
+          gulp
+            .src([
+              "./src/assets/sass/main.scss",
+              "./src/assets/sass/noscript.scss"
+            ])
+            // Compile SASS files
+            .pipe(
+              sass({
+                outputStyle: "nested",
+                precision: 10,
+                includePaths: ["."],
+                onError: console.error.bind(console, "Sass error:")
+              })
+            )
+            // Auto-prefix css styles for cross browser compatibility
+            .pipe(autoprefixer())
+            // Minify the file
+            .pipe(csso())
+            // Output
+            .pipe(gulp.dest("./src/assets/css"))
+        );
+      },
+      // Move additional css libs to dist
+      function() {
+        return gulp
+          .src("./src/assets/.css/*")
+          .pipe(gulp.dest("./src/assets/css"));
+      }
+    )
   );
 });
