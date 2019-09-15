@@ -80,19 +80,31 @@ gulp.task("scripts", function() {
 });
 
 // Gulp task to minify images
-gulp.task("images", function() {
-  return (
-    gulp
-      .src([
-        "./src/images/**/*.{jpg,jpeg,gif,png,svg}",
-        "!./src/images/original/*"
-      ])
-      //Minify the file
-      .pipe(imagemin())
-      // Output
-      .pipe(gulp.dest("./dist/images"))
-  );
-});
+gulp.task(
+  "images",
+  gulp.parallel(
+    function() {
+      return (
+        gulp
+          .src([
+            "./src/images/**/*.{jpg,jpeg,gif,png}",
+            "!./src/images/original/*",
+            "!./src/images/components/*"
+          ])
+          //Minify the file
+          .pipe(imagemin())
+          // Output
+          .pipe(gulp.dest("./dist/images"))
+      );
+    },
+    // Copy components to dist to avoid breaking svgs
+    function() {
+      return gulp
+        .src("./src/images/components/*.*")
+        .pipe(gulp.dest("./dist/images/components"));
+    }
+  )
+);
 
 // Gulp task to minify HTML files
 gulp.task("pages", function() {
