@@ -5,7 +5,8 @@ $slide: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
 $grey: #4f4f4f;
 $white: #ffffff;
 // $green: #39bda7;
-$blue: #2d7afb;
+$blue: #35b88f;
+// #2d7afb;
 // #0037ff;
 
 $transparent: rgba(255, 255, 255, 0);
@@ -39,9 +40,13 @@ a.button-primary {
   background-color: $blue;
 
   &:hover {
-    border: 1px solid $white;
-    padding: 22px 42px;
+    background: #45c89f;
   }
+
+  // &:hover {
+  //   border: 1px solid $white;
+  //   padding: 22px 42px;
+  // }
 
   // &:before {
   //   content: "";

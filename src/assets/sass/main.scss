@@ -5,6 +5,7 @@
 @import 'libs/breakpoints';
 @import 'libs/html-grid';
 @import 'components/button-primary';
+@import 'components/chatbot-demo';
 @import url("fontawesome-all.min.css");
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600');
 
@@ -187,9 +188,9 @@
 		text-decoration: none;
 		border-bottom: dotted 1px rgba(53, 184, 143, 0.5);
 
-		&:hover {
-			border-bottom-color: rgba(53, 184, 143, 0);
-		}
+		// &:hover {
+		// 	border-bottom-color: rgba(53, 184, 143, 0);
+		// }
 	}
 
 	sub {
@@ -891,7 +892,7 @@
 		}
 
 		p {
-			margin: 0;
+			margin: 2.5em 15%;
 		}
 
 		footer {
@@ -1404,6 +1405,10 @@
 						font-size: 1.5em;
 						letter-spacing: 6px;
 					}
+				}
+				
+				p {
+					margin: 0;
 				}
 			}
 
