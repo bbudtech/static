@@ -257,17 +257,46 @@
           touch.
         </p>
       </header>
-      <form method="post" action="#">
+      <form
+        id="signup-form"
+        action="https://bestbud.us19.list-manage.com/subscribe/post"
+        method="POST"
+      >
+        <input type="hidden" name="u" value="360955e5f15945fd68f9d6448" />
+        <input type="hidden" name="id" value="7698bf035a" />
         <div class="row gtr-50">
           <div class="col-6 col-12-mobile">
-            <input type="text" class="text" name="name" placeholder="Name" />
+            <input
+              type="text"
+              class="text field"
+              name="MERGE1"
+              id="MERGE1"
+              placeholder="Name"
+              data-validation="required"
+            />
           </div>
           <div class="col-6 col-12-mobile">
-            <input type="text" class="text" name="email" placeholder="Email" />
+            <input
+              type="text"
+              class="text field"
+              autocapitalize="off"
+              autocorrect="off"
+              name="MERGE0"
+              id="MERGE0"
+              placeholder="Email"
+              data-validation="required email"
+            />
           </div>
           <div class="col-12">
-            <textarea name="message" placeholder="Ask us anything"></textarea>
+            <textarea
+              class="text field"
+              name="MERGE2"
+              id="MERGE2"
+              placeholder="Ask us anything"
+            ></textarea>
           </div>
+          <div class="error message hidden"></div>
+          <div class="success message hidden"></div>
           <div class="col-12">
             <ul class="actions">
               <li><input type="submit" value="Sign up now" /></li>
@@ -475,5 +504,6 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/validations.js"></script>
   </body>
 </html>
